@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IPM.API.Models.Pest_Solution>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pest.P_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solution.Sol_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pest.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Solution.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PSol_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PSol_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PSol_ID })
+        </td>
+    </tr>
+}
+
+</table>

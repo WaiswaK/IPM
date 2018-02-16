@@ -1,0 +1,46 @@
+﻿@model IPM.API.Models.Symptom
+
+
+@{
+
+    ViewBag.Title = "Details";
+    var imagePath = @Model.ImagePath;
+    if(imagePath == null)
+        imagePath = @"~/Images/Symptoms.jpg";
+    
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Symptom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dd>
+            <img src="@Url.Content(imagePath)" alt="Image" />
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keywords)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.S_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

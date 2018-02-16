@@ -1,0 +1,48 @@
+﻿@model IPM.API.Models.Pest_Symptom
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pest Symptom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Part.Part_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Part.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pest.P_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pest.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Symptom.S_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symptom.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

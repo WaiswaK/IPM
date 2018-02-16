@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDDT.Views.DashboardMaster"
+             Title="Welcome">
+    <StackLayout>
+        <ListView x:Name="ListViewMenuItems"
+                    SeparatorVisibility="Default"
+                    BackgroundColor="Green"
+                    HasUnevenRows="False"
+                    ItemsSource="{Binding MenuItems}">
+            
+            <ListView.Header>
+                <Grid BackgroundColor="Green">
+                    <Image Source="icon.png" 
+                           VerticalOptions="Start"
+                           HorizontalOptions="Start"/>
+                    <Label Text="{Binding UserFullName}" 
+                           FontSize="Medium"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"
+                           Style="{DynamicResource SubtitleStyle}"/>
+
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}" TextColor="White"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

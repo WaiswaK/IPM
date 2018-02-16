@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="966ce163a48441f290ab72ef3d53b0d9" Name="Diagram1">
+        <EntityTypeShape EntityType="IPMModel.AspNetRole" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.AspNetUser" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Chemical" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Control" Width="1.5" PointX="7.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Disease" Width="1.5" PointX="10" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Disease_Solution" Width="1.5" PointX="12.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Disease_Symptom" Width="1.5" PointX="12.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Management" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Part" Width="1.5" PointX="10" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Pest" Width="1.5" PointX="10" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Pest_Solution" Width="1.5" PointX="12.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Pest_Symptom" Width="1.5" PointX="12.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Solution" Width="1.5" PointX="10" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPMModel.Symptom" Width="1.5" PointX="10" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="IPMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Management_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Users_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Solution_Control" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Disease_Solution_Disease" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Disease_Symptom_Disease" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Disease_Solution_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Disease_Symptom_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Disease_Symptom_Symptom" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Pest_Symptom_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Pest_Solution_Pest" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Pest_Symptom_Pest" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Pest_Solution_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.FK_Pest_Symptom_Symptom" ManuallyRouted="false" />
+        <AssociationConnector Association="IPMModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

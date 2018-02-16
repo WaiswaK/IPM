@@ -1,0 +1,1114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address" Type="text" />
+          <Property Name="Full Names" Type="text" />
+        </EntityType>
+        <EntityType Name="Chemical">
+          <Key>
+            <PropertyRef Name="Chem-ID" />
+          </Key>
+          <Property Name="Chem-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Control">
+          <Key>
+            <PropertyRef Name="C-ID" />
+          </Key>
+          <Property Name="C-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Disease">
+          <Key>
+            <PropertyRef Name="D-ID" />
+          </Key>
+          <Property Name="D-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="About" Type="text" />
+          <Property Name="Transmision" Type="text" />
+        </EntityType>
+        <EntityType Name="Disease Solution">
+          <Key>
+            <PropertyRef Name="DSol-ID" />
+          </Key>
+          <Property Name="DSol-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="D-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sol-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Disease Symptom">
+          <Key>
+            <PropertyRef Name="DS-ID" />
+          </Key>
+          <Property Name="DS-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="D-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="S-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Part-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Management">
+          <Key>
+            <PropertyRef Name="ManagementID" />
+          </Key>
+          <Property Name="ManagementID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Harvest Date" Type="date" />
+          <Property Name="Bunches" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Sales" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Toppled Plants" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Weavils Noticed" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Part">
+          <Key>
+            <PropertyRef Name="Part-ID" />
+          </Key>
+          <Property Name="Part-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pest">
+          <Key>
+            <PropertyRef Name="P-ID" />
+          </Key>
+          <Property Name="P-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="About" Type="text" />
+          <Property Name="Spread" Type="text" />
+        </EntityType>
+        <EntityType Name="Pest Solution">
+          <Key>
+            <PropertyRef Name="PSol-ID" />
+          </Key>
+          <Property Name="PSol-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="P-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sol-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pest Symptom">
+          <Key>
+            <PropertyRef Name="PS-ID" />
+          </Key>
+          <Property Name="PS-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="P-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="S-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Part-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solution">
+          <Key>
+            <PropertyRef Name="Sol-ID" />
+          </Key>
+          <Property Name="Sol-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="C-ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Symptom">
+          <Key>
+            <PropertyRef Name="S-ID" />
+          </Key>
+          <Property Name="S-ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="ImagePath" Type="text" />
+          <Property Name="Keywords" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease Solution_Disease">
+          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Disease Solution" Type="Self.Disease Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disease">
+              <PropertyRef Name="D-ID" />
+            </Principal>
+            <Dependent Role="Disease Solution">
+              <PropertyRef Name="D-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease Solution_Solution">
+          <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+          <End Role="Disease Solution" Type="Self.Disease Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solution">
+              <PropertyRef Name="Sol-ID" />
+            </Principal>
+            <Dependent Role="Disease Solution">
+              <PropertyRef Name="Sol-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease Symptom_Disease">
+          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Disease Symptom" Type="Self.Disease Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disease">
+              <PropertyRef Name="D-ID" />
+            </Principal>
+            <Dependent Role="Disease Symptom">
+              <PropertyRef Name="D-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease Symptom_Part">
+          <End Role="Part" Type="Self.Part" Multiplicity="1" />
+          <End Role="Disease Symptom" Type="Self.Disease Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="Part-ID" />
+            </Principal>
+            <Dependent Role="Disease Symptom">
+              <PropertyRef Name="Part-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease Symptom_Symptom">
+          <End Role="Symptom" Type="Self.Symptom" Multiplicity="1" />
+          <End Role="Disease Symptom" Type="Self.Disease Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symptom">
+              <PropertyRef Name="S-ID" />
+            </Principal>
+            <Dependent Role="Disease Symptom">
+              <PropertyRef Name="S-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Management_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Management" Type="Self.Management" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Management">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest Solution_Pest">
+          <End Role="Pest" Type="Self.Pest" Multiplicity="1" />
+          <End Role="Pest Solution" Type="Self.Pest Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pest">
+              <PropertyRef Name="P-ID" />
+            </Principal>
+            <Dependent Role="Pest Solution">
+              <PropertyRef Name="P-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest Solution_Solution">
+          <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+          <End Role="Pest Solution" Type="Self.Pest Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solution">
+              <PropertyRef Name="Sol-ID" />
+            </Principal>
+            <Dependent Role="Pest Solution">
+              <PropertyRef Name="Sol-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest Symptom_Part">
+          <End Role="Part" Type="Self.Part" Multiplicity="1" />
+          <End Role="Pest Symptom" Type="Self.Pest Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="Part-ID" />
+            </Principal>
+            <Dependent Role="Pest Symptom">
+              <PropertyRef Name="Part-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest Symptom_Pest">
+          <End Role="Pest" Type="Self.Pest" Multiplicity="1" />
+          <End Role="Pest Symptom" Type="Self.Pest Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pest">
+              <PropertyRef Name="P-ID" />
+            </Principal>
+            <Dependent Role="Pest Symptom">
+              <PropertyRef Name="P-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest Symptom_Symptom">
+          <End Role="Symptom" Type="Self.Symptom" Multiplicity="1" />
+          <End Role="Pest Symptom" Type="Self.Pest Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symptom">
+              <PropertyRef Name="S-ID" />
+            </Principal>
+            <Dependent Role="Pest Symptom">
+              <PropertyRef Name="S-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solution_Control">
+          <End Role="Control" Type="Self.Control" Multiplicity="0..1" />
+          <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Control">
+              <PropertyRef Name="C-ID" />
+            </Principal>
+            <Dependent Role="Solution">
+              <PropertyRef Name="C-ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IPMModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chemical" EntityType="Self.Chemical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disease" EntityType="Self.Disease" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disease Solution" EntityType="Self.Disease Solution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disease Symptom" EntityType="Self.Disease Symptom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Management" EntityType="Self.Management" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Part" EntityType="Self.Part" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pest" EntityType="Self.Pest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pest Solution" EntityType="Self.Pest Solution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pest Symptom" EntityType="Self.Pest Symptom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solution" EntityType="Self.Solution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Symptom" EntityType="Self.Symptom" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease Solution_Disease" Association="Self.FK_Disease Solution_Disease">
+            <End Role="Disease" EntitySet="Disease" />
+            <End Role="Disease Solution" EntitySet="Disease Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease Solution_Solution" Association="Self.FK_Disease Solution_Solution">
+            <End Role="Solution" EntitySet="Solution" />
+            <End Role="Disease Solution" EntitySet="Disease Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease Symptom_Disease" Association="Self.FK_Disease Symptom_Disease">
+            <End Role="Disease" EntitySet="Disease" />
+            <End Role="Disease Symptom" EntitySet="Disease Symptom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease Symptom_Part" Association="Self.FK_Disease Symptom_Part">
+            <End Role="Part" EntitySet="Part" />
+            <End Role="Disease Symptom" EntitySet="Disease Symptom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease Symptom_Symptom" Association="Self.FK_Disease Symptom_Symptom">
+            <End Role="Symptom" EntitySet="Symptom" />
+            <End Role="Disease Symptom" EntitySet="Disease Symptom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Management_AspNetUsers" Association="Self.FK_Management_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Management" EntitySet="Management" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest Solution_Pest" Association="Self.FK_Pest Solution_Pest">
+            <End Role="Pest" EntitySet="Pest" />
+            <End Role="Pest Solution" EntitySet="Pest Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest Solution_Solution" Association="Self.FK_Pest Solution_Solution">
+            <End Role="Solution" EntitySet="Solution" />
+            <End Role="Pest Solution" EntitySet="Pest Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest Symptom_Part" Association="Self.FK_Pest Symptom_Part">
+            <End Role="Part" EntitySet="Part" />
+            <End Role="Pest Symptom" EntitySet="Pest Symptom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest Symptom_Pest" Association="Self.FK_Pest Symptom_Pest">
+            <End Role="Pest" EntitySet="Pest" />
+            <End Role="Pest Symptom" EntitySet="Pest Symptom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest Symptom_Symptom" Association="Self.FK_Pest Symptom_Symptom">
+            <End Role="Symptom" EntitySet="Symptom" />
+            <End Role="Pest Symptom" EntitySet="Pest Symptom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solution_Control" Association="Self.FK_Solution_Control">
+            <End Role="Control" EntitySet="Control" />
+            <End Role="Solution" EntitySet="Solution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_AspNetUsers" Association="Self.FK_Users_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IPMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Full_Names" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Managements" Relationship="Self.FK_Management_AspNetUsers" FromRole="AspNetUsers" ToRole="Management" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_Users_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK_Users_AspNetUsers" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Chemical">
+          <Key>
+            <PropertyRef Name="Chem_ID" />
+          </Key>
+          <Property Name="Chem_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Control">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Solutions" Relationship="Self.FK_Solution_Control" FromRole="Control" ToRole="Solution" />
+        </EntityType>
+        <EntityType Name="Disease">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Transmision" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Disease_Solution" Relationship="Self.FK_Disease_Solution_Disease" FromRole="Disease" ToRole="Disease_Solution" />
+          <NavigationProperty Name="Disease_Symptom" Relationship="Self.FK_Disease_Symptom_Disease" FromRole="Disease" ToRole="Disease_Symptom" />
+        </EntityType>
+        <EntityType Name="Disease_Solution">
+          <Key>
+            <PropertyRef Name="DSol_ID" />
+          </Key>
+          <Property Name="DSol_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="D_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sol_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Disease" Relationship="Self.FK_Disease_Solution_Disease" FromRole="Disease_Solution" ToRole="Disease" />
+          <NavigationProperty Name="Solution" Relationship="Self.FK_Disease_Solution_Solution" FromRole="Disease_Solution" ToRole="Solution" />
+        </EntityType>
+        <EntityType Name="Disease_Symptom">
+          <Key>
+            <PropertyRef Name="DS_ID" />
+          </Key>
+          <Property Name="DS_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="D_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="S_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Part_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Disease" Relationship="Self.FK_Disease_Symptom_Disease" FromRole="Disease_Symptom" ToRole="Disease" />
+          <NavigationProperty Name="Part" Relationship="Self.FK_Disease_Symptom_Part" FromRole="Disease_Symptom" ToRole="Part" />
+          <NavigationProperty Name="Symptom" Relationship="Self.FK_Disease_Symptom_Symptom" FromRole="Disease_Symptom" ToRole="Symptom" />
+        </EntityType>
+        <EntityType Name="Management">
+          <Key>
+            <PropertyRef Name="ManagementID" />
+          </Key>
+          <Property Name="ManagementID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Harvest_Date" Type="DateTime" Precision="0" />
+          <Property Name="Bunches" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sales" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Toppled_Plants" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Weavils_Noticed" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Management_AspNetUsers" FromRole="Management" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Part">
+          <Key>
+            <PropertyRef Name="Part_ID" />
+          </Key>
+          <Property Name="Part_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Disease_Symptom" Relationship="Self.FK_Disease_Symptom_Part" FromRole="Part" ToRole="Disease_Symptom" />
+          <NavigationProperty Name="Pest_Symptom" Relationship="Self.FK_Pest_Symptom_Part" FromRole="Part" ToRole="Pest_Symptom" />
+        </EntityType>
+        <EntityType Name="Pest">
+          <Key>
+            <PropertyRef Name="P_ID" />
+          </Key>
+          <Property Name="P_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Spread" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pest_Solution" Relationship="Self.FK_Pest_Solution_Pest" FromRole="Pest" ToRole="Pest_Solution" />
+          <NavigationProperty Name="Pest_Symptom" Relationship="Self.FK_Pest_Symptom_Pest" FromRole="Pest" ToRole="Pest_Symptom" />
+        </EntityType>
+        <EntityType Name="Pest_Solution">
+          <Key>
+            <PropertyRef Name="PSol_ID" />
+          </Key>
+          <Property Name="PSol_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="P_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sol_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pest" Relationship="Self.FK_Pest_Solution_Pest" FromRole="Pest_Solution" ToRole="Pest" />
+          <NavigationProperty Name="Solution" Relationship="Self.FK_Pest_Solution_Solution" FromRole="Pest_Solution" ToRole="Solution" />
+        </EntityType>
+        <EntityType Name="Pest_Symptom">
+          <Key>
+            <PropertyRef Name="PS_ID" />
+          </Key>
+          <Property Name="PS_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="P_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="S_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Part_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Part" Relationship="Self.FK_Pest_Symptom_Part" FromRole="Pest_Symptom" ToRole="Part" />
+          <NavigationProperty Name="Pest" Relationship="Self.FK_Pest_Symptom_Pest" FromRole="Pest_Symptom" ToRole="Pest" />
+          <NavigationProperty Name="Symptom" Relationship="Self.FK_Pest_Symptom_Symptom" FromRole="Pest_Symptom" ToRole="Symptom" />
+        </EntityType>
+        <EntityType Name="Solution">
+          <Key>
+            <PropertyRef Name="Sol_ID" />
+          </Key>
+          <Property Name="Sol_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Control" Relationship="Self.FK_Solution_Control" FromRole="Solution" ToRole="Control" />
+          <NavigationProperty Name="Disease_Solution" Relationship="Self.FK_Disease_Solution_Solution" FromRole="Solution" ToRole="Disease_Solution" />
+          <NavigationProperty Name="Pest_Solution" Relationship="Self.FK_Pest_Solution_Solution" FromRole="Solution" ToRole="Pest_Solution" />
+        </EntityType>
+        <EntityType Name="Symptom">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Disease_Symptom" Relationship="Self.FK_Disease_Symptom_Symptom" FromRole="Symptom" ToRole="Disease_Symptom" />
+          <NavigationProperty Name="Pest_Symptom" Relationship="Self.FK_Pest_Symptom_Symptom" FromRole="Symptom" ToRole="Pest_Symptom" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Management_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Management" Type="Self.Management" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Management">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solution_Control">
+          <End Role="Control" Type="Self.Control" Multiplicity="0..1" />
+          <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Control">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Solution">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease_Solution_Disease">
+          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Disease_Solution" Type="Self.Disease_Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disease">
+              <PropertyRef Name="D_ID" />
+            </Principal>
+            <Dependent Role="Disease_Solution">
+              <PropertyRef Name="D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease_Symptom_Disease">
+          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Disease_Symptom" Type="Self.Disease_Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disease">
+              <PropertyRef Name="D_ID" />
+            </Principal>
+            <Dependent Role="Disease_Symptom">
+              <PropertyRef Name="D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease_Solution_Solution">
+          <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+          <End Role="Disease_Solution" Type="Self.Disease_Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solution">
+              <PropertyRef Name="Sol_ID" />
+            </Principal>
+            <Dependent Role="Disease_Solution">
+              <PropertyRef Name="Sol_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease_Symptom_Part">
+          <End Role="Part" Type="Self.Part" Multiplicity="1" />
+          <End Role="Disease_Symptom" Type="Self.Disease_Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="Part_ID" />
+            </Principal>
+            <Dependent Role="Disease_Symptom">
+              <PropertyRef Name="Part_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disease_Symptom_Symptom">
+          <End Role="Symptom" Type="Self.Symptom" Multiplicity="1" />
+          <End Role="Disease_Symptom" Type="Self.Disease_Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symptom">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="Disease_Symptom">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest_Symptom_Part">
+          <End Role="Part" Type="Self.Part" Multiplicity="1" />
+          <End Role="Pest_Symptom" Type="Self.Pest_Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="Part_ID" />
+            </Principal>
+            <Dependent Role="Pest_Symptom">
+              <PropertyRef Name="Part_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest_Solution_Pest">
+          <End Role="Pest" Type="Self.Pest" Multiplicity="1" />
+          <End Role="Pest_Solution" Type="Self.Pest_Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pest">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Pest_Solution">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest_Symptom_Pest">
+          <End Role="Pest" Type="Self.Pest" Multiplicity="1" />
+          <End Role="Pest_Symptom" Type="Self.Pest_Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pest">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Pest_Symptom">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest_Solution_Solution">
+          <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+          <End Role="Pest_Solution" Type="Self.Pest_Solution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solution">
+              <PropertyRef Name="Sol_ID" />
+            </Principal>
+            <Dependent Role="Pest_Solution">
+              <PropertyRef Name="Sol_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pest_Symptom_Symptom">
+          <End Role="Symptom" Type="Self.Symptom" Multiplicity="1" />
+          <End Role="Pest_Symptom" Type="Self.Pest_Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symptom">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="Pest_Symptom">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="IPMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Chemicals" EntityType="Self.Chemical" />
+          <EntitySet Name="Controls" EntityType="Self.Control" />
+          <EntitySet Name="Diseases" EntityType="Self.Disease" />
+          <EntitySet Name="Disease_Solutions" EntityType="Self.Disease_Solution" />
+          <EntitySet Name="Disease_Symptoms" EntityType="Self.Disease_Symptom" />
+          <EntitySet Name="Managements" EntityType="Self.Management" />
+          <EntitySet Name="Parts" EntityType="Self.Part" />
+          <EntitySet Name="Pests" EntityType="Self.Pest" />
+          <EntitySet Name="Pest_Solutions" EntityType="Self.Pest_Solution" />
+          <EntitySet Name="Pest_Symptoms" EntityType="Self.Pest_Symptom" />
+          <EntitySet Name="Solutions" EntityType="Self.Solution" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptom" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Management_AspNetUsers" Association="Self.FK_Management_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Management" EntitySet="Managements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_AspNetUsers" Association="Self.FK_Users_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solution_Control" Association="Self.FK_Solution_Control">
+            <End Role="Control" EntitySet="Controls" />
+            <End Role="Solution" EntitySet="Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease_Solution_Disease" Association="Self.FK_Disease_Solution_Disease">
+            <End Role="Disease" EntitySet="Diseases" />
+            <End Role="Disease_Solution" EntitySet="Disease_Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease_Symptom_Disease" Association="Self.FK_Disease_Symptom_Disease">
+            <End Role="Disease" EntitySet="Diseases" />
+            <End Role="Disease_Symptom" EntitySet="Disease_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease_Solution_Solution" Association="Self.FK_Disease_Solution_Solution">
+            <End Role="Solution" EntitySet="Solutions" />
+            <End Role="Disease_Solution" EntitySet="Disease_Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease_Symptom_Part" Association="Self.FK_Disease_Symptom_Part">
+            <End Role="Part" EntitySet="Parts" />
+            <End Role="Disease_Symptom" EntitySet="Disease_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disease_Symptom_Symptom" Association="Self.FK_Disease_Symptom_Symptom">
+            <End Role="Symptom" EntitySet="Symptoms" />
+            <End Role="Disease_Symptom" EntitySet="Disease_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest_Symptom_Part" Association="Self.FK_Pest_Symptom_Part">
+            <End Role="Part" EntitySet="Parts" />
+            <End Role="Pest_Symptom" EntitySet="Pest_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest_Solution_Pest" Association="Self.FK_Pest_Solution_Pest">
+            <End Role="Pest" EntitySet="Pests" />
+            <End Role="Pest_Solution" EntitySet="Pest_Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest_Symptom_Pest" Association="Self.FK_Pest_Symptom_Pest">
+            <End Role="Pest" EntitySet="Pests" />
+            <End Role="Pest_Symptom" EntitySet="Pest_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest_Solution_Solution" Association="Self.FK_Pest_Solution_Solution">
+            <End Role="Solution" EntitySet="Solutions" />
+            <End Role="Pest_Solution" EntitySet="Pest_Solutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pest_Symptom_Symptom" Association="Self.FK_Pest_Symptom_Symptom">
+            <End Role="Symptom" EntitySet="Symptoms" />
+            <End Role="Pest_Symptom" EntitySet="Pest_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IPMModelStoreContainer" CdmEntityContainer="IPMEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="IPMModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="IPMModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="IPMModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="IPMModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Full_Names" ColumnName="Full Names" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chemicals">
+            <EntityTypeMapping TypeName="IPMModel.Chemical">
+              <MappingFragment StoreEntitySet="Chemical">
+                <ScalarProperty Name="Chem_ID" ColumnName="Chem-ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Controls">
+            <EntityTypeMapping TypeName="IPMModel.Control">
+              <MappingFragment StoreEntitySet="Control">
+                <ScalarProperty Name="C_ID" ColumnName="C-ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diseases">
+            <EntityTypeMapping TypeName="IPMModel.Disease">
+              <MappingFragment StoreEntitySet="Disease">
+                <ScalarProperty Name="D_ID" ColumnName="D-ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Transmision" ColumnName="Transmision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disease_Solutions">
+            <EntityTypeMapping TypeName="IPMModel.Disease_Solution">
+              <MappingFragment StoreEntitySet="Disease Solution">
+                <ScalarProperty Name="DSol_ID" ColumnName="DSol-ID" />
+                <ScalarProperty Name="D_ID" ColumnName="D-ID" />
+                <ScalarProperty Name="Sol_ID" ColumnName="Sol-ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disease_Symptoms">
+            <EntityTypeMapping TypeName="IPMModel.Disease_Symptom">
+              <MappingFragment StoreEntitySet="Disease Symptom">
+                <ScalarProperty Name="DS_ID" ColumnName="DS-ID" />
+                <ScalarProperty Name="D_ID" ColumnName="D-ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S-ID" />
+                <ScalarProperty Name="Part_ID" ColumnName="Part-ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managements">
+            <EntityTypeMapping TypeName="IPMModel.Management">
+              <MappingFragment StoreEntitySet="Management">
+                <ScalarProperty Name="ManagementID" ColumnName="ManagementID" />
+                <ScalarProperty Name="Harvest_Date" ColumnName="Harvest Date" />
+                <ScalarProperty Name="Bunches" ColumnName="Bunches" />
+                <ScalarProperty Name="Sales" ColumnName="Sales" />
+                <ScalarProperty Name="Toppled_Plants" ColumnName="Toppled Plants" />
+                <ScalarProperty Name="Weavils_Noticed" ColumnName="Weavils Noticed" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parts">
+            <EntityTypeMapping TypeName="IPMModel.Part">
+              <MappingFragment StoreEntitySet="Part">
+                <ScalarProperty Name="Part_ID" ColumnName="Part-ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pests">
+            <EntityTypeMapping TypeName="IPMModel.Pest">
+              <MappingFragment StoreEntitySet="Pest">
+                <ScalarProperty Name="P_ID" ColumnName="P-ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Spread" ColumnName="Spread" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pest_Solutions">
+            <EntityTypeMapping TypeName="IPMModel.Pest_Solution">
+              <MappingFragment StoreEntitySet="Pest Solution">
+                <ScalarProperty Name="PSol_ID" ColumnName="PSol-ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P-ID" />
+                <ScalarProperty Name="Sol_ID" ColumnName="Sol-ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pest_Symptoms">
+            <EntityTypeMapping TypeName="IPMModel.Pest_Symptom">
+              <MappingFragment StoreEntitySet="Pest Symptom">
+                <ScalarProperty Name="PS_ID" ColumnName="PS-ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P-ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S-ID" />
+                <ScalarProperty Name="Part_ID" ColumnName="Part-ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solutions">
+            <EntityTypeMapping TypeName="IPMModel.Solution">
+              <MappingFragment StoreEntitySet="Solution">
+                <ScalarProperty Name="Sol_ID" ColumnName="Sol-ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="C_ID" ColumnName="C-ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Symptoms">
+            <EntityTypeMapping TypeName="IPMModel.Symptom">
+              <MappingFragment StoreEntitySet="Symptom">
+                <ScalarProperty Name="S_ID" ColumnName="S-ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="IPMModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

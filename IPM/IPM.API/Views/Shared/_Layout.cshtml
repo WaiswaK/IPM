@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - IPM</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("IPM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Disease", "Index", "Diseases")</li>
+                    <li>@Html.ActionLink("Pest", "Index", "Pests")</li>
+                    <li>@Html.ActionLink("Solution", "Index", "Solutions")</li>
+                    <li>@Html.ActionLink("Symptom", "Index", "Symptoms")</li>
+                    <li>@Html.ActionLink("Chemical", "Index", "Chemicals")</li>
+                    <li>@Html.ActionLink("Disease Symptom", "Index", "Disease_Symptom")</li>
+                    <li>@Html.ActionLink("Pest Symptom", "Index", "Pest_Symptom")</li>
+                    <li>@Html.ActionLink("Disease Solution", "Index", "Disease_Solution")</li>
+                    <li>@Html.ActionLink("Pest Solution", "Index", "Pest_Solution")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IPM</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

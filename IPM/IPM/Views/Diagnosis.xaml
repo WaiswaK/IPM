@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDDT.Views.Diagnosis"
+             BackgroundColor="White"          
+             Title="Diagnosis">
+
+    <Grid x:Name="LayoutRoot" Padding="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Diagnosis" FontSize="Large" LineBreakMode="WordWrap">
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="False" WinPhone="True" />
+            </Label.IsVisible>
+        </Label>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <Label Text="Diseases Found:" FontSize="Large" FontAttributes="Bold" IsVisible="{Binding DiseasesFound}"/>
+                <Label Text="{Binding Diseasename}" FontSize="Medium" FontAttributes="Italic" IsVisible="{Binding DiseasesFound}"/>
+
+                <Label Text="Disease Controls:" FontSize="Large" FontAttributes="Bold"/>
+
+                <Label Text="Chemical Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding DiseaseChemicalFound}"/>
+                <Label Text="{Binding DiseaseChemical}" FontSize="Medium" 
+                       FontAttributes="Italic" IsVisible="{Binding DiseaseChemicalFound}"/>
+
+                <Label Text="Mechanical Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding DiseaseMechanicalFound}"/>
+                <Label Text="{Binding DiseaseMechanical}" FontSize="Medium" 
+                           FontAttributes="Italic" IsVisible="{Binding DiseaseMechanicalFound}"/>
+
+                <Label Text="Cultural Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding DiseaseCulturalFound}"/>
+                <Label Text="{Binding DiseaseCultural}" FontSize="Medium" 
+                       FontAttributes="Italic" IsVisible="{Binding DiseaseCulturalFound}"/>
+
+                <Label Text="Biological Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding DiseaseBiologicalFound}"/>
+                <Label Text="{Binding DiseaseBiological}" FontSize="Medium" 
+                       FontAttributes="Italic" IsVisible="{Binding DiseaseBiologicalFound}"/>
+                
+                <Label FontSize="Large" TextColor="Black" Text="Pest" FontAttributes="Bold" IsVisible="{Binding PestsFound}"/>
+                <Label Text="{Binding Pestname}" FontSize="Medium" FontAttributes="Italic" IsVisible="{Binding PestsFound}"/>
+
+                <Label Text="Pest Controls:" FontSize="Large" FontAttributes="None" IsVisible="{Binding PestsFound}"/>
+                <Label Text="Chemical Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding PestChemicalFound}"/>
+                <Label Text="{Binding PestChemical}" FontSize="Medium" 
+                       FontAttributes="Italic" IsVisible="{Binding PestChemicalFound}"/>
+
+                <Label Text="Mechanical Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding PestMechanicalFound}"/>
+                <Label Text="{Binding PestMechanical}" FontSize="Medium" 
+                           FontAttributes="Italic" IsVisible="{Binding PestMechanicalFound}"/>
+
+                <Label Text="Cultural Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding PestCulturalFound}"/>
+                <Label Text="{Binding PestCultural}" FontSize="Medium" 
+                       FontAttributes="Italic" IsVisible="{Binding PestCulturalFound}"/>
+
+                <Label Text="Biological Control:" FontSize="Medium" 
+                       FontAttributes="Bold" IsVisible="{Binding PestBiologicalFound}"/>
+                <Label Text="{Binding PestBiological}" FontSize="Medium" 
+                       FontAttributes="Italic" IsVisible="{Binding PestBiologicalFound}"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

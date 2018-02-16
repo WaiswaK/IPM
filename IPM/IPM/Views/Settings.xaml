@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDDT.Views.Settings"
+             >
+    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" Grid.Row="1">
+        <Label Text="{Binding Host}" x:Name="hostLabel"/>
+        <Label Text="{Binding Port}" x:Name="portLabel"/>
+        
+        <Entry Placeholder="Host" TextColor="Black" x:Name ="host_field" 
+                       PlaceholderColor="Green" Keyboard="Text" IsVisible="False"/>
+
+        <Entry Placeholder="Port" TextColor="Black" x:Name ="port_field" 
+                       PlaceholderColor="Green" Keyboard ="Numeric" IsVisible="False"/>
+        
+        <Button Text="Change" TextColor="White" BackgroundColor="Green"
+                        Clicked="EditBtn_Clicked" x:Name ="EditBtn"/>
+
+        <Button Text="Save" TextColor="White" BackgroundColor="Green"
+                        Clicked="SaveBtn_Clicked" x:Name ="SaveBtn" IsVisible="False"/>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDDT.Views.Questionaire"
+             xmlns:controls="clr-namespace:PDDT.Controls"
+             Title="Background Information">
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TableView Grid.Row="0">
+                    <TableSection Title="Diagnosis query">
+                        <SwitchCell Text="Used Chemical in Past 6 months?" 
+                                    x:Name="diagnosis_switch" 
+                                    OnChanged="Diagnosis_switch_OnChanged"
+                                    On="False"/>
+                    </TableSection>
+                </TableView>
+                <StackLayout Grid.Row="1">
+                    <controls:BindablePicker
+                              ItemsSource="{Binding Path=Chemicals}"
+                              DisplayMemberPath="Description"
+                              SelectedValuePath="Description"
+                              SelectedValue="{Binding Path=Control.Description, Mode=TwoWay}" 
+                              IsVisible="False"
+                              x:Name="Chemical_Picker"/>
+                    
+                    <Label Text="Date used" x:Name="Chemical_label" IsVisible="False"/>
+                    <DatePicker x:Name="ChemicalDatePicker" 
+                                TextColor="Black" 
+                                IsVisible="False"
+                                />
+                    <Button Text="Confirm" TextColor="Green" Clicked="Button_Clicked"/>
+                    <Label Text="{Binding Selected_symptom}" IsVisible="False" x:Name="selected_label" TextColor="Green"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

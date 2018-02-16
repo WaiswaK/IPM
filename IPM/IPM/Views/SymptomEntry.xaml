@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDDT.Views.SymptomEntry"
+             >
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <StackLayout Spacing="0" Padding="5" Grid.Row="0">
+                <Label Text= "Enter symptoms at the respective parts section" />
+                <Label x:Name="ProcessLabel"/>
+            </StackLayout>
+            
+            <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" Grid.Row="1">
+                <Entry Placeholder="Fruit" TextColor="Black" x:Name ="fruit_field" 
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Entry Placeholder="Male bud" TextColor="Black" x:Name ="malebud_field" 
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Entry Placeholder="Leaves" TextColor="Black" x:Name ="leaves_location" 
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Entry Placeholder="Pseudo stem" TextColor="Black" x:Name ="stem_field" 
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Entry Placeholder="Corm/rhizome" TextColor="Black" x:Name ="corm_field" 
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Entry Placeholder="Roots" TextColor="Black" x:Name ="root_location"
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Entry Placeholder="Whole Plant" TextColor="Black" x:Name ="Whole_location"
+                       PlaceholderColor="Green" Keyboard="Text"/>
+
+                <Button Text="Diagonise" TextColor="White" BackgroundColor="Green"
+                        Clicked="SaveBtn_Clicked" x:Name ="SaveBtn"/>
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

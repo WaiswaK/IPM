@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDDT.Views.Management">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Spacing="0" Padding="5" Grid.Row="0">
+                <Label Text= "Enter symptoms at the respective parts section" />
+                <Label x:Name="ProcessLabel"/>
+            </StackLayout>
+
+            <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" Grid.Row="1">
+
+                <StackLayout Orientation="Horizontal"
+                     VerticalOptions="CenterAndExpand">
+                    <Label Text="Date" VerticalOptions="Center" TextColor="Black"/>
+                    <DatePicker x:Name="toDatePicker" DateSelected="OnDateSelected" TextColor="Black"/>
+                </StackLayout>
+
+                <Entry Placeholder="Weavils Noticed" TextColor="Black" x:Name ="Weavils_Noticed_lb" 
+                       PlaceholderColor="Green" Keyboard="Numeric"/>
+
+                <Entry Placeholder="Bunches" TextColor="Black" x:Name ="Bunches_lb" 
+                       PlaceholderColor="Green" Keyboard="Numeric"/>
+
+                <Entry Placeholder="Sales" TextColor="Black" x:Name ="Sales_lb" 
+                       PlaceholderColor="Green" Keyboard="Numeric"/>
+
+                <Entry Placeholder="Toppled Plants" TextColor="Black" x:Name ="TP_lb" 
+                       PlaceholderColor="Green" Keyboard="Numeric"/>
+
+                <Button Text="Send" TextColor="White" BackgroundColor="Green"
+                        Clicked="SaveBtn_Clicked" x:Name ="SaveBtn"/>
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
